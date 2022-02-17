@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+- [`2e27b03a`](https://github.com/twilio-labs/paste/commit/2e27b03a57b185021478534829f921278ad7f3ac) [#2215](https://github.com/twilio-labs/paste/pull/2215) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icon] add connectivity neutral icon
+
 ## 6.1.0
 
 ### Minor Changes

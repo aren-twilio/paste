@@ -1,5 +1,11 @@
 # @twilio-paste/color-contrast-utils
 
+## 2.0.1
+
+### Patch Changes
+
+- [`0cd424df`](https://github.com/twilio-labs/paste/commit/0cd424df4d3ed57e60a0d93b97dda8b4c708ce7c) [#2184](https://github.com/twilio-labs/paste/pull/2184) Thanks [@loreina](https://github.com/loreina)! - [color-contrast-utils] Enable color contrast tests for Dark theme
+
 ## 2.0.0
 
 ### Minor Changes
