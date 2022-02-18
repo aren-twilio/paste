@@ -11,7 +11,7 @@ import {STORYBOOK_DOMAIN} from '../../../constants';
 import type {SidebarCategoryRoutes} from '../../../constants';
 import GithubIcon from '../../icons/GithubIcon';
 import StorybookIcon from '../../icons/StorybookIcon';
-import {getOpengraphServiceUrl, getNameFromPackageName, getCategoryNameFromRoute} from '../../../utils/RouteUtils';
+import {useOpengraphServiceUrl, getNameFromPackageName, getCategoryNameFromRoute} from '../../../utils/RouteUtils';
 
 const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: string}> = ({href, icon, children}) => (
   <Anchor href={href}>
@@ -51,13 +51,14 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   storybookUrl,
   version,
 }) => {
+  const theme = useTheme();
+
   const ogImagePath = packageName
     ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
     : undefined;
+  const openGraphServiceUrl = ogImagePath ? useOpengraphServiceUrl(ogImagePath) : null;
 
   const shouldShowSecondary = version || githubUrl || storybookUrl;
-  const theme = useTheme();
-
   const sharedIconStyles = {
     height: theme.space.space40,
     width: theme.space.space40,
@@ -66,9 +67,9 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
 
   return (
     <Box>
-      {ogImagePath && (
+      {openGraphServiceUrl && (
         <Helmet>
-          <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
+          <meta property="og:image" content={openGraphServiceUrl} />
         </Helmet>
       )}
       <Box marginBottom="space50">
